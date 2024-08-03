@@ -5,74 +5,77 @@
 
 ## Step 2 **Set Up Google Sheets API**:
 
-- **Here’s a step-by-step guide to help you create the credentials for a service account and get everything set up:**
+**Here’s a step-by-step guide to help you create the credentials for a service account and get everything set up:**
     
-    **Step 1: Set Up Google Cloud Project**
+   **Step 1: Set Up Google Cloud Project**
     
-    1.	**Create a New Project**:
+   1.	**Create a New Project**:
     
-    •	Go to the [Google Cloud Console](https://console.cloud.google.com/).
+   •	Go to the [Google Cloud Console](https://console.cloud.google.com/).
     
-    •	Click on the project drop-down and select “New Project”.
+   •	Click on the project drop-down and select “New Project”.
     
-    •	Name your project and click “Create”.
+   •	Name your project and click “Create”.
     
-    2.	**Enable Google Sheets API**:
+   2.	**Enable Google Sheets API**:
     
-    •	In the Google Cloud Console, navigate to “APIs & Services” > “Library”.
+   •	In the Google Cloud Console, navigate to “APIs & Services” > “Library”.
     
-    •	Search for “Google Sheets API” and click on it.
+   •	Search for “Google Sheets API” and click on it.
     
-    •	Click “Enable”.
+   •	Click “Enable”.
     
-    3.	**Create Credentials**:
+   3.	**Create Credentials**:
     
-    •	Go to “APIs & Services” > “Credentials”.
+   •	Go to “APIs & Services” > “Credentials”.
     
-    •	Click “Create Credentials” and select “Service Account”.
+   •	Click “Create Credentials” and select “Service Account”.
     
-    •	Fill in the service account name (e.g., my-service-account) and description.
+   •	Fill in the service account name (e.g., my-service-account) and description.
     
-    •	Click “Create and Continue”.
+   •	Click “Create and Continue”.
     
-    4.	**Set Permissions** (Optional):
+   4.	**Set Permissions** (Optional):
     
-    •	You can skip setting permissions for now by clicking “Continue”.
+   •	You can skip setting permissions for now by clicking “Continue”.
     
-    5.	**Create Key**:
+   5.	**Create Key**:
     
-    •	Click “Done” to finish creating the service account.
+   •	Click “Done” to finish creating the service account.
     
-    •	Find your service account in the list, click the email, and go to the “Keys” tab.
+   •	Find your service account in the list, click the email, and go to the “Keys” tab.
     
-    •	Click “Add Key” > “Create New Key” and select JSON.
+   •	Click “Add Key” > “Create New Key” and select JSON.
     
-    •	This will download a JSON file to your computer. Save this file securely as it contains sensitive information.
+   •	This will download a JSON file to your computer. Save this file securely as it contains sensitive information.
     
-    **Step 2: Share Your Google Sheet**
+   **Step 2: Share Your Google Sheet**
     
-    1.	**Create a New Google Sheet**:
+   1.	**Create a New Google Sheet**:
     
-    •	Go to Google Sheets and create a new spreadsheet. Name it “Grocery List”.
+   •	Go to Google Sheets and create a new spreadsheet. Name it “Grocery List”.
     
-    2.	**Share the Google Sheet**:
+   2.	**Share the Google Sheet**:
     
-    •	Click the “Share” button in the top-right corner.
+   •	Click the “Share” button in the top-right corner.
     
-    •	Share the sheet with the email address of your service account. The email will look something like your-service-account-name@your-project-id.iam.gserviceaccount.com.
+   •	Share the sheet with the email address of your service account. The email will look something like your-service-account-name@your-project-id.iam.gserviceaccount.com.
 
 ## Step 3 Update the Script:
 
-1.	**Install Required Libraries in terminal by pasting this command:**
+1.	**Install Required Libraries in your mac terminal by pasting this command:**
 
-pip install gspread oauth2client
+        pip install gspread oauth2client
 
-Then in the python code, add this line under the first import at the beginning:
+Then at the top of the python script, underneath
 
-import gspread
-from oauth2client.service_account import ServiceAccountCredentials
+    import requests
+    from bs4 import BeautifulSoup
+    
+add these two lines of code:
 
-![Screenshot 2024-07-21 at 1.58.16 AM.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/8597dbac-9336-4563-bec3-c673ec78c6b8/0ee967ec-e924-47d2-8e1b-81f53785ef14/Screenshot_2024-07-21_at_1.58.16_AM.png)
+    import gspread
+    from oauth2client.service_account import ServiceAccountCredentials
 
 ## Step 4 Add in File Location to Script:
 
