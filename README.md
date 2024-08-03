@@ -1,64 +1,114 @@
-BigOven Recipe Scraper and Google Sheets Integration
+## This walkthrough is for scraping ingredients from bigoven.com recipes and sending them to Google Sheets
 
-This project provides a Python script to scrape recipe ingredients from BigOven.com and save them to a Google Sheet. It is designed to help users compile grocery lists from multiple recipes efficiently.
+## STEP 1
+ Run this code to Scrape BigOven for ingredients:
+ BigOven_recipe_scraper_Google.py
 
-Features
+## Step 2 **Set Up Google Sheets API**:
 
-- Scrape ingredients from BigOven recipe URLs.
-- Compile a grocery list from multiple recipe URLs.
-- Save the compiled grocery list to a Google Sheet.
+- **Here’s a step-by-step guide to help you create the credentials for a service account and get everything set up:**
+    
+    **Step 1: Set Up Google Cloud Project**
+    
+    1.	**Create a New Project**:
+    
+    •	Go to the [Google Cloud Console](https://console.cloud.google.com/).
+    
+    •	Click on the project drop-down and select “New Project”.
+    
+    •	Name your project and click “Create”.
+    
+    2.	**Enable Google Sheets API**:
+    
+    •	In the Google Cloud Console, navigate to “APIs & Services” > “Library”.
+    
+    •	Search for “Google Sheets API” and click on it.
+    
+    •	Click “Enable”.
+    
+    3.	**Create Credentials**:
+    
+    •	Go to “APIs & Services” > “Credentials”.
+    
+    •	Click “Create Credentials” and select “Service Account”.
+    
+    •	Fill in the service account name (e.g., my-service-account) and description.
+    
+    •	Click “Create and Continue”.
+    
+    4.	**Set Permissions** (Optional):
+    
+    •	You can skip setting permissions for now by clicking “Continue”.
+    
+    5.	**Create Key**:
+    
+    •	Click “Done” to finish creating the service account.
+    
+    •	Find your service account in the list, click the email, and go to the “Keys” tab.
+    
+    •	Click “Add Key” > “Create New Key” and select JSON.
+    
+    •	This will download a JSON file to your computer. Save this file securely as it contains sensitive information.
+    
+    **Step 2: Share Your Google Sheet**
+    
+    1.	**Create a New Google Sheet**:
+    
+    •	Go to Google Sheets and create a new spreadsheet. Name it “Grocery List”.
+    
+    2.	**Share the Google Sheet**:
+    
+    •	Click the “Share” button in the top-right corner.
+    
+    •	Share the sheet with the email address of your service account. The email will look something like your-service-account-name@your-project-id.iam.gserviceaccount.com.
 
-#Prerequisites
+## Step 3 Update the Script:
 
-Python 3.x
-Google Cloud Project with Google Sheets API enabled
-JSON key file for a Google Service Account
+1.	**Install Required Libraries in terminal by pasting this command:**
 
-Setup Instructions
+pip install gspread oauth2client
 
-Step 1: Clone the Repository
-git clone https://github.com/yourusername/BigOvenRecipeScraper.git
-cd BigOvenRecipeScraper
+Then in the python code, add this line under the first import at the beginning:
 
-Step 2: Set Up Google Sheets API
+import gspread
+from oauth2client.service_account import ServiceAccountCredentials
 
-	1.	Create a New Project:
-	•	Go to the Google Cloud Console.
-	•	Click on the project drop-down and select “New Project”.
-	•	Name your project and click “Create”.
-	2.	Enable Google Sheets API:
-	•	In the Google Cloud Console, navigate to “APIs & Services” > “Library”.
-	•	Search for “Google Sheets API” and click on it.
-	•	Click “Enable”.
-	3.	Create Credentials:
-	•	Go to “APIs & Services” > “Credentials”.
-	•	Click “Create Credentials” and select “Service Account”.
-	•	Fill in the service account name (e.g., my-service-account) and description.
-	•	Click “Create and Continue”.
-	4.	Set Permissions (Optional):
-	•	You can skip setting permissions for now by clicking “Continue”.
-	5.	Create Key:
-	•	Click “Done” to finish creating the service account.
-	•	Find your service account in the list, click the email, and go to the “Keys” tab.
-	•	Click “Add Key” > “Create New Key” and select JSON.
-	•	This will download a JSON file to your computer. Save this file securely as it contains sensitive information.
-	6.	Share Your Google Sheet:
-	•	Create a new Google Sheet named “Grocery List”.
-	•	Share the sheet with the email address of your service account. The email will look something like your-service-account-name@your-project-id.iam.gserviceaccount.com.
+![Screenshot 2024-07-21 at 1.58.16 AM.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/8597dbac-9336-4563-bec3-c673ec78c6b8/0ee967ec-e924-47d2-8e1b-81f53785ef14/Screenshot_2024-07-21_at_1.58.16_AM.png)
 
-Step 3: Install Required Libraries
+## Step 4 Add in File Location to Script:
 
-Open Terminal or Command Prompt and run:
-pip install gspread oauth2client requests beautifulsoup4
+Go in and change 'path/to/your/credentials.json’ with actual path to json key file
 
-Step 4: Update the Script
+Mine is: /Users/austinwalker/Documents/Pthon/grocery_list_project/grocery-list-430106-858b8154e862.json.
 
-	1.	Download the script:
-	•	BigOven_recipe_scraper_Google_copy.py
-	2.	Update the Path to Your JSON Key File:
-	•	Open the downloaded script in your code editor.
-	•	Replace 'path/to/your/credentials.json’ with the actual path to your JSON key file.
+## Step 5 Run Script:
 
- creds = ServiceAccountCredentials.from_json_keyfile_name('/Users/austinwalker/Documents/Pthon/grocery_list_project/grocery-list-430106-858b8154e862.json', scope)
+1.	**Execute the Updated Script:**
 
- 
+•	Open the script in Python IDLE or your preferred IDE.
+
+•	Run the script and follow the prompts to enter recipe URLs.
+
+•	Type done when you have entered all the URLs.
+
+2.	**Verify the Grocery List in Google Sheets:**
+
+•	Open your Google Sheet named “Grocery List”.
+
+•	Verify that the ingredients have been added correctly.
+
+**Example of Running the Script**
+
+1.	**Start the Script:**
+
+python BigOven_recipe_scraper_Google.py
+
+2.	**Enter Recipe URLs:**
+
+Please enter the recipe URLs you plan to cook this week (type 'done' to finish):
+Recipe URL: [URL]
+Recipe URL: done
+
+3.	**Check the Google Sheet:**
+
+•	Open the Google Sheet and confirm the grocery list has been populated.
