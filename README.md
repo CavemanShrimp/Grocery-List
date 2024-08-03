@@ -4,9 +4,9 @@ This project provides a Python script to scrape recipe ingredients from BigOven.
 
 Features
 
-Scrape ingredients from BigOven recipe URLs.
-Compile a grocery list from multiple recipe URLs.
-Save the compiled grocery list to a Google Sheet.
+- Scrape ingredients from BigOven recipe URLs.
+- Compile a grocery list from multiple recipe URLs.
+- Save the compiled grocery list to a Google Sheet.
 
 #Prerequisites
 
