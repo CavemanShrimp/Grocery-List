@@ -1,7 +1,6 @@
 ## This walkthrough is for scraping ingredients from bigoven.com recipes and sending them to Google Sheets
 
-## STEP 1
- Run this code to Scrape BigOven for ingredients:
+## STEP 1 Download this code:
  BigOven_recipe_scraper_Google.py
 
 ## Step 2 **Set Up Google Sheets API**:
