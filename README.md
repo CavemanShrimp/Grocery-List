@@ -1,4 +1,4 @@
-#BigOven Recipe Scraper and Google Sheets Integration
+BigOven Recipe Scraper and Google Sheets Integration
 
 This project provides a Python script to scrape recipe ingredients from BigOven.com and save them to a Google Sheet. It is designed to help users compile grocery lists from multiple recipes efficiently.
 
