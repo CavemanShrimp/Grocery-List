@@ -41,7 +41,7 @@ def get_grocery_list(recipe_urls):
 
 # THIS IS WHERE YOU CHANGE TO YOUR HOME DIRECTORY
 # Add the grocery list to Google Sheets
-def add_to_google_sheets(grocery_list):
+def add_to_google_sheets(Grocery_List):
     # Google Sheets API setup
     scope = ["https://spreadsheets.google.com/feeds", 'https://www.googleapis.com/auth/spreadsheets',
              "https://www.googleapis.com/auth/drive.file", "https://www.googleapis.com/auth/drive"]
@@ -49,14 +49,14 @@ def add_to_google_sheets(grocery_list):
     client = gspread.authorize(creds)
     
     # Open the spreadsheet and add data
-    sheet = client.open("Grocery List").sheet1  # Open the "Grocery List" spreadsheet and select the first sheet
+    sheet = client.open("Grocery_List").sheet1  # Open the "Grocery List" spreadsheet and select the first sheet
     sheet.clear()  # Clear existing content
     
     # Add headers
     sheet.append_row(["Ingredient"])
     
     # Add grocery list items
-    for ingredient in grocery_list:
+    for ingredient in Grocery_List:
         sheet.append_row([ingredient])
     
     print("Grocery list added to Google Sheets.")
