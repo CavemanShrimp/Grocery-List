@@ -53,7 +53,7 @@
     
    1.	**Create a New Google Sheet**:
     
-   •	Go to Google Sheets and create a new spreadsheet. Name it “Grocery List”.
+   •	Go to Google Sheets and create a new spreadsheet. Name it “Grocery_List”.
     
    2.	**Share the Google Sheet**:
     
